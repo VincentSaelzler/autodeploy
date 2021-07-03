@@ -1,0 +1,11 @@
+- name: All hosts up-to-date
+  hosts: dotval
+  become: yes
+  tasks:
+    - name: full system upgrade
+      pacman:
+        update_cache: yes
+        upgrade: yes
+
+
+        
