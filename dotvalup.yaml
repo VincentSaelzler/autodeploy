@@ -1,6 +1,16 @@
 - name: Polkadot Validator Setup
   hosts: virtsrv
   tasks:
+    - name: Copy SSH Public Key
+      tags: ssh
+      copy:
+        src: "id_rsa.pub"
+        dest: "{{ ansible_user_dir }}"
+    - name: Download Disk Image
+      tags: dl
+      get_url:
+        url: "https://mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-cloudimg-20210619.26314.qcow2"
+        dest: "{{ ansible_user_dir }}/archcloud.qcow2"
     - name: Create VM
       tags: up
       shell: |
