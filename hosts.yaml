@@ -1,0 +1,10 @@
+dotval:
+  hosts:
+    192.168.128.40
+  vars:
+    ansible_user: arch
+
+# virtserver:
+# 192.168.128.2
+# [polkadotvalidation:vars]
+# ansible_user=arch
