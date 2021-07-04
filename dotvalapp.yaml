@@ -1,0 +1,8 @@
+- name: Polkadot App Installation
+  hosts: dotval
+  become: yes
+  tasks:
+    - name: Add non-priviledged user
+      user:
+        name: "{{ unprivileged_user }}"
+        password: "{{ 'samplepass' | password_hash('sha512', 'samplesalt') }}"
