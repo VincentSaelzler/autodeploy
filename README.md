@@ -25,7 +25,12 @@ These can be combined. For example, from nothing to fully running VM:
 ansible-playbook dotvalup.yaml --tags ssh,dl,up,go
 ```
 
+## Idempotence
+Key topic. Add some examples.
+
 ## References
+**Check the Arch Ansible page before doing too much more!!**
+https://wiki.archlinux.org/title/Ansible
 https://wiki.archlinux.org/title/Arch_Linux_on_a_VPS  
 https://gitlab.archlinux.org/archlinux/arch-boxes#qcow2-images  
 https://pve.proxmox.com/wiki/Cloud-Init_Support (includes documentation on creating the VMs)

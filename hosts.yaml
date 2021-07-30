@@ -5,7 +5,9 @@ dotval:
     ansible_user: arch
 virtsrv:
   hosts:
-    192.168.128.2
+    192.168.128.2:
+    192.168.128.3:
+    192.168.128.4:
   vars:
     ansible_user: root
 all:

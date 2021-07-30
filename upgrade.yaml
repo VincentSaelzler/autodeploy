@@ -1,0 +1,19 @@
+- name: Upgrade Arch Linux Hosts
+  hosts: dotval
+  tags: arch
+  become: yes
+  tasks:
+    - name: Equivalent of "Pacman -Syu"
+      pacman:
+        update_cache: yes
+        upgrade: yes
+
+- name: Upgrade Debian/Ubuntu Hosts
+  hosts: virtsrv
+  tags: deb
+  tasks:
+    - name: Equivalent of "apt-get update && apt-get dist-upgrade"
+      apt:
+        update_cache: yes
+        upgrade: dist
+        
