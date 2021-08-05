@@ -1,2 +1,5 @@
 ---
+# networking environment
 subnet: 192.168.128
+# Proxmox conventions
+performance_storage: lvm-thick

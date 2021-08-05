@@ -14,14 +14,26 @@
         name:
           - proxmoxer
           - requests
-    - name: Create new container with minimal options.
-      community.general.proxmox:
-        vmid: 100
+    - name: Create a new container sane default options.
+      community.general.proxmox: #TODO - mark as an upstream issue in github that containers are not changed, only created.
+        vmid: 101
+        # authentication
         node: pve4
         api_user: root@pam
         api_password: "{{ root_pass }}"
         api_host: pve4
         password: 123456
-        hostname: helloworld.vnet
+        hostname: torrent1
         ostemplate: 'local:vztmpl/debian-9.0-standard_9.7-1_amd64.tar.gz'
         state: present
+        storage: "{{ performance_storage }}"
+        # everything in this section historically had defaults  that were from the package
+        # dropping defauls and mirroring config defaults of proxmox 6.4-13.
+        proxmox_default_behavior : no_defaults
+        cores: 1
+        disk: 3
+        memory: 512
+        onboot: no
+        swap: 512
+        unprivileged: yes
+        #TODO: network
