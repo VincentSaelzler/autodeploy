@@ -2,6 +2,8 @@
 - name: Create a hello world test container.
   hosts: 192.168.128.4
   become: yes
+  vars_files:
+    - vars/sensitive.yml
   tasks:
     - name: Ensure pip is installed.
       apt:
@@ -16,7 +18,7 @@
         vmid: 100
         node: pve4
         api_user: root@pam
-        api_password: 
+        api_password: "{{ root_pass }}"
         api_host: pve4
         password: 123456
         hostname: helloworld.vnet
