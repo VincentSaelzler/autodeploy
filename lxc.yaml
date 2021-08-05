@@ -1,0 +1,24 @@
+---
+- name: Create a hello world test container.
+  hosts: 192.168.128.4
+  become: yes
+  tasks:
+    - name: Ensure pip is installed.
+      apt:
+        name: python3-pip
+    - name: Ensure Python modules are installed.
+      pip:
+        name:
+          - proxmoxer
+          - requests
+    - name: Create new container with minimal options.
+      community.general.proxmox:
+        vmid: 100
+        node: pve4
+        api_user: root@pam
+        api_password: 
+        api_host: pve4
+        password: 123456
+        hostname: helloworld.vnet
+        ostemplate: 'local:vztmpl/debian-9.0-standard_9.7-1_amd64.tar.gz'
+        state: present
