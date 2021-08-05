@@ -1,9 +1,10 @@
 ---
 - name: Create a hello world test container.
-  hosts: 192.168.128.4
+  hosts: "{{ subnet }}.4"
   become: yes
   vars_files:
     - vars/sensitive.yml
+    - vars/public.yml
   tasks:
     - name: Ensure pip is installed.
       apt:
